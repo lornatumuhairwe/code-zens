@@ -1,3 +1,7 @@
+:root {
+  font-size: 62.5%;
+}
+
 .App {
   text-align: center;
 }
@@ -29,4 +33,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.center-text {
+  margin-top: 30vh;
+  font-size: 4rem;
+}
+
+.btn-medium {
+    background-color: #282c34;
+    color: #fff;
+    border: #282c34 solid 1px;
+    outline: none;
+    height: 3rem;
+    border-radius: 0.2rem;
+    font-size: 1.5rem;
 }

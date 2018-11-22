@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Zen from './zen.js';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          zen: 'Prefer focus over features'
+      };
+      this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick () {
+    fetch('https://api.github.com/zen')
+        .then(function (response) {
+            return response.text()
+        }).then(data => {
+        this.setState({ zen: data });
+    })
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h2>Coding Zen</h2>
+        <Zen zen={this.state.zen} />
+        <button
+            className='btn-medium'
+            onClick={this.handleClick}
+        >
+            Refresh</button>
       </div>
     );
   }
