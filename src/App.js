@@ -7,17 +7,7 @@ import './App.css';
 class App extends Component {
   constructor(props) {
       super(props);
-      this.handleClick = this.handleClick.bind(this);
   }
-
-  handleClick () {
-    fetch('https://api.github.com/zen')
-        .then(function (response) {
-            return response.text()
-        }).then(data => {
-        this.setState({ zen: data });
-    })
-  };
 
   render() {
       console.log(this.props);
